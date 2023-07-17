@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Event</title>
+</head>
+
+<body>
+    <h1>Explore more event</h1>
+    <button id="more-event">More Event</button>
+    <br>
+    <input type="text" name="" id="text-field">
+    <script>
+        //i can use click, mouseenter, mousemove ,focus ,blur etc
+        document.getElementById('more-event').addEventListener('mousemove', function () {
+            console.log('Explore more event');
+        });
+
+        // document.getElementById('text-field').addEventListener('focus', function () {
+        //     console.log('this is foused');
+        // })
+        // document.getElementById('text-field').addEventListener('blur', function () {
+        //     console.log('this is blur');
+        // })
+
+        // document.getElementById('text-field').addEventListener('keydown', function (event) {
+        //     console.log(event.target.value);
+        // })
+
+        // document.getElementById('text-field').addEventListener('keypress', function (event) {
+        //     console.log(event.target.value);
+        // })
+        document.getElementById('text-field').addEventListener('keyup', function (event) {
+            console.log(event.target.value);
+        })
+    </script>
+</body>
+
+</html>

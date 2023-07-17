@@ -9,7 +9,28 @@
 
 <body>
     <h1>Welcome to Js Dom Event</h1>
+    <button onclick="console.log(7)">Submit here</button><br>
+    <button onclick="console.log('hello world')">Submit here</button>
+    <br>
+    <button onclick="document.body.style.backgroundColor = 'pink'">Make pink</button>
+    <button onclick="makeGold()">Make gold</button>
+    <button id="make-blue">Make royelBlue</button>
+    <button id="make-gray">Make gray</button>
+    <button id="make-seaGreen">Make MediumSeaGreen</button>
+    <button id="make-tomato">Make Tomato</button>
+    <button id="make-violet">Make Violet</button>
+    <br>
+
+    <h1 id="heading-title">Most common </h1>
+    <button id="info-details">Details</button>
+
     <script src="js/event.js"></script>
+    <script>
+        document.getElementById('info-details').addEventListener('click', function () {
+            const details = document.getElementById('heading-title');
+            details.innerText = 'Most common ways to set Event Handlers'
+        })
+    </script>
 </body>
 
 </html>

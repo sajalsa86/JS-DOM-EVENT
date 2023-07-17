@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github</title>
+    <style>
+        #secret-info {
+            width: 600px;
+            height: 90px;
+            border: 5px solid gray;
+            color: azure;
+            text-shadow: 3px 2px 3px plum;
+            background-color: darkslategray;
+            box-shadow: 3px 3px 5px plum;
+            border-radius: 7px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="secret-info">Bangladesh Jamat-E Islam Jindabad</h1>
+    <input type="text" name="" id="delete-confirm" placeholder="Type delete for delete">
+    <button id="btn-delete" disabled>Delete</button>
+
+    <script>
+        document.getElementById('delete-confirm').addEventListener('keyup', function (event) {
+            const text = event.target.value;
+            if (text === 'delete') {
+                deleteBtn.removeAttribute('disabled');
+            }
+            else {
+                deleteBtn.setAttribute('disabled', true);
+            }
+        })
+        const deleteBtn = document.getElementById('btn-delete');
+        deleteBtn.addEventListener('click', function () {
+            const secretInfo = document.getElementById('secret-info');
+            secretInfo.style.display = 'none';
+        })
+    </script>
+</body>
+
+</html>

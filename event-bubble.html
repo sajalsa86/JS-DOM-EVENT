@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+    <style>
+        #container,
+        #section-part,
+        #article-part {
+            border: 20px solid lightslategrey;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 3px 3px 5px gray;
+            border-radius: 5px;
+        }
+
+        #container {
+            background-color: rgba(95, 158, 160, 0.555);
+        }
+
+        #section-part {
+            background: rgba(255, 217, 0, 0.425);
+        }
+
+        #article-part {
+            background-color: rgba(240, 255, 255, 0.603);
+        }
+
+        #list {
+            display: flex;
+            font-size: 2rem;
+            list-style: none;
+            border: 5px solid grey;
+            padding: 10px;
+        }
+
+        #list li {
+            margin-right: 30px;
+            color: azure;
+            cursor: pointer;
+            background-color: chocolate;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            width: 200px;
+            height: 100px;
+            border-radius: 12px;
+        }
+
+        #list li:hover {
+            background-color: royalblue;
+        }
+    </style>
+</head>
+
+<body>
+    <main id="container">
+        <h2>This is main Container</h2>
+        <section id="section-part">
+            <h2>This is section in main container</h2>
+            <article id="article-part">
+                <h2>This is article in section</h2>
+                <ul id="list">
+                    <li id="item-1">Lorem, ipsum.</li>
+                    <li id="item-2">Atque, quidem.</li>
+                    <li id="item-3">Quis, architecto!</li>
+                    <li id="item-4">Dolor, dolorum.</li>
+                    <li id="item-5">Dolor, expedita!</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+    <script>
+        //container
+        document.getElementById('container').addEventListener('click', function () {
+            console.log('Container Clicked');
+        });
+        //section-part
+        document.getElementById('section-part').addEventListener('click', function (event) {
+            console.log('section-part Clicked');
+            event.stopPropagation();
+        });
+        //article-part
+        document.getElementById('article-part').addEventListener('click', function (event) {
+            console.log('article-part Clicked');
+            event.stopPropagation();
+        });
+        //list
+        document.getElementById('list').addEventListener('click', function (event) {
+            console.log('List Clicked');
+            event.stopPropagation();
+        });
+        //item-3
+        //first
+        document.getElementById('item-3').addEventListener('click', function (event) {
+            console.log('item-3 first Clicked');
+            // event.stopPropagation();
+            event.stopImmediatePropagation();
+        })
+        //secound
+        document.getElementById('item-3').addEventListener('click', function (event) {
+            console.log('item-3 secound Clicked');
+
+
+        })
+        //third
+        document.getElementById('item-3').addEventListener('click', function (event) {
+            console.log('item-3 third Clicked');
+        })
+
+    </script>
+</body>
+
+</html>
